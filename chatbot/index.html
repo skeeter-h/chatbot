@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <button id="chatbot-button" class="chatbot-button">
+        <img src="../static/images/chatbot-icon.png" alt="ChatBot Icon">
+    </button>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="scrollable-content"></div>
+            <span id="close" class="close">&times;</span>
+            <div class="header">
+                <h1 style="color: #ffffff"><img src="../static/images/logo.png" alt="ChatBot Icon" class="chatbot-icon">Kakashi's ChatBot</h1>
+                <!--<a target="_blank" href="https://icons8.com/icon/tfjXQGXBzK0L/kakashi-hatake">Kakashi Hatake</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>-->
+            </div>
+
+            <!--This is the actual chatbox where the bots responses and users inputs are displayed-->
+            <div id="chatbox">
+                <!--The user should get a selection of options to choose from that will aid them in their enquiries-->
+                <div id="button-group">
+                    <div class="button-wrapper">
+                      <button type="button" class="bot-options">View our Products</button>
+                    </div>
+                    <div class="button-wrapper">
+                      <button type="button" class="bot-options">Warranty Information</button>
+                    </div>
+                    <div class="button-wrapper">
+                      <button type="button" class="bot-options">Services Information</button>
+                    </div>
+                    <div class="button-wrapper">
+                        <button type="button" class="bot-options">Help</button>
+                      </div>
+                  </div>
+                <!-- Chat messages will be displayed here -->
+            </div>
+            <!--A form is used due to it's submit functions, user inputs the intended question and then javascript is used to make the message appear in chatbox and also send it off to the backend-->
+            <form id="message-form" action="/receive-message" method="POST">
+                <button type="button" id="speech-button" onclick="startSpeechRecognition()"><img src="../static/images/microphone.png"></button>
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button type="submit" id="send-button"><img src="../static/images/send_message.png"></button>
+            </form>
+        </div>
+    </div>
+    <script src="../static/script.js"></script>
+</body>
+</html>
